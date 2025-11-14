@@ -59,6 +59,21 @@ public class linear {
                 } while (critG[i][j] < 0 || critG[i][j] > 10);
             }
         }
+        double rezult;
+        for(int i=0; i<stud.length; i++) {
+        	rezult =0;
+        	for(int j=0; j<crit.length; j++) {
+        		rezult += ((double)critW[j]/100)*critG[i][j];
+        	}
+        	finalG[i] = rezult;
+        }
         scan.close();
+        System.out.println("Gala vērtējumi: ");
+        for(int i=0; i<stud.length; i++) {
+        	for(int j=0; j<crit.length; j++) {
+        		System.out.println("Studenta "+stud[i]+" vārtējums par kritēriju "+crit[j]+" ir "+critG[i][j]+", kura svars ir "+critW[j]);
+        	}
+        	System.out.println("Semestra vērtējums: "+df.format(finalG[i])+"balles"+"\n+++++++++++++++++++++++++++++++++++++++++\n");
+        }
     }
 }
